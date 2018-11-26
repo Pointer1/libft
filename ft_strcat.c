@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykopiika <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/04 18:10:26 by ykopiika          #+#    #+#             */
-/*   Updated: 2018/11/04 18:10:38 by ykopiika         ###   ########.fr       */
+/*   Created: 2018/11/09 19:14:08 by ykopiika          #+#    #+#             */
+/*   Updated: 2018/11/09 19:14:11 by ykopiika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	ft_memset(s, 0, n);
+	char	*d;
+	char	*s;
+
+	d = (char*)s1;
+	s = (char*)s2;
+	while (*d != '\0')
+		d++;
+	while (*s != '\0')
+		*d++ = *s++;
+	*d = '\0';
+	return (s1);
 }

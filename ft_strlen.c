@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   strlen.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykopiika <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/04 18:10:26 by ykopiika          #+#    #+#             */
-/*   Updated: 2018/11/04 18:10:38 by ykopiika         ###   ########.fr       */
+/*   Created: 2018/11/09 14:19:41 by ykopiika          #+#    #+#             */
+/*   Updated: 2018/11/09 14:19:53 by ykopiika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+size_t	ft_strlen(const char *s)
 {
-	ft_memset(s, 0, n);
+	size_t	len;
+	size_t	i;
+
+	i = 0;
+	len = 0;
+	while (s[i])
+	{
+		len++;
+		i++;
+	}
+	return (len);
 }

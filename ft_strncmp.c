@@ -1,18 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykopiika <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/04 18:10:26 by ykopiika          #+#    #+#             */
-/*   Updated: 2018/11/04 18:10:38 by ykopiika         ###   ########.fr       */
+/*   Created: 2018/11/14 18:08:45 by ykopiika          #+#    #+#             */
+/*   Updated: 2018/11/14 18:08:48 by ykopiika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	ft_memset(s, 0, n);
+	unsigned char	*s11;
+	unsigned char	*s22;
+	size_t			i;
+
+	s11 = (unsigned char*)s1;
+	s22 = (unsigned char*)s2;
+	i = 1;
+	if (n == 0)
+		return (0);
+	while (*s11 && *s22 && (*s11 == *s22) && i < n)
+	{
+		s11++;
+		s22++;
+		i++;
+	}
+	return (*s11 - *s22);
 }
