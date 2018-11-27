@@ -20,11 +20,11 @@ int	ft_check(char s)
 	return (0);
 }
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	unsigned long int res;
-	int	i;
-	int sign;
+	unsigned long int	res;
+	int					i;
+	int					sign;
 
 	res = 0;
 	i = 0;
