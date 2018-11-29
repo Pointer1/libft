@@ -16,6 +16,7 @@ int		chek(char *str1, char *str2)
 {
 	int i;
 	int k;
+
 	i = 0;
 	k = 0;
 	while (str2[i] != '\0')
