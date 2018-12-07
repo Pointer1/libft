@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlen.c                                           :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykopiika <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 14:19:41 by ykopiika          #+#    #+#             */
-/*   Updated: 2018/11/09 14:19:53 by ykopiika         ###   ########.fr       */
+/*   Created: 2018/12/06 18:18:52 by ykopiika          #+#    #+#             */
+/*   Updated: 2018/12/06 18:18:54 by ykopiika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	size_t	len;
-
-	len = 0;
-	while (*s)
+	if (alst && *alst)
 	{
-		len++;
-		s++;
+		del((*alst)->content, (*alst)->content_size);
+		ft_memdel((*alst)->content);
+		*alst = NULL;
 	}
-	return (len);
 }
