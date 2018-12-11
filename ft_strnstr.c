@@ -27,7 +27,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		return (h);
 	while (i++ <= (len - ln) && *h != '\0' && len != 0)
 	{
-		if ((ft_strncmp(h, n, ln) == 0))
+		if ((ft_strncmp(h, n, ln) == 0) && ln < len)
 			return (h);
 		h++;
 	}

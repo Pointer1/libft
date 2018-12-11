@@ -42,9 +42,9 @@ int	ft_atoi(const char *str)
 		res = (res * 10) + (str[i] - '0');
 		i++;
 	}
-	if (res > 4294967295 && sign == -1)
+	if (res > 9223372036854775807 && sign == -1)
 		return (0);
-	else if (res > 4294967295 && sign == 1)
+	else if (res > 9223372036854775807 && sign == 1)
 		return (-1);
 	return (res * sign);
 }

@@ -33,10 +33,10 @@ char	*ft_itoa(int n)
 	char		*r;
 	long int	n1;
 
-	r = ft_strnew(ft_n(n));
-	n1 = (long int)n;
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
+	r = ft_strnew(ft_n(n));
+	n1 = (long int)n;
 	if (r != NULL)
 	{
 		if (n < 0)
