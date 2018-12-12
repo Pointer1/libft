@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		chek(char *str1, char *str2)
+static int		chek(char *str1, char *str2)
 {
 	int i;
 	int k;
@@ -30,7 +30,7 @@ int		chek(char *str1, char *str2)
 	return (0);
 }
 
-char	*ft_strstr(const char *haystack, const char *needle)
+char			*ft_strstr(const char *haystack, const char *needle)
 {
 	char	*h;
 	char	*n;

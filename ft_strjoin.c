@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*ft_wr(char const *s1, char const *s2, char *res)
+static char	*ft_wr(char const *s1, char const *s2, char *res)
 {
 	int i;
 
@@ -26,14 +26,18 @@ char	*ft_wr(char const *s1, char const *s2, char *res)
 	return (res);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
 	int		len_s1;
 	int		len_s2;
 	char	*res;
 
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 		return (NULL);
+	if (!s1)
+		return ((char*)s2);
+	if (!s2)
+		return ((char*)s1);
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);
 	res = ft_strnew(len_s1 + len_s2);

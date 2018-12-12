@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_wc(char const *s, char c)
+static int		ft_wc(char const *s, char c)
 {
 	int w;
 
@@ -29,7 +29,7 @@ int		ft_wc(char const *s, char c)
 	return (w);
 }
 
-int		ft_strlen_to_d(char const *s, char c)
+static int		ft_strlen_to_d(char const *s, char c)
 {
 	int i;
 
@@ -42,7 +42,7 @@ int		ft_strlen_to_d(char const *s, char c)
 	return (i);
 }
 
-char	**ft_write(char const *s, char c, char **dest, int count)
+static char		**ft_write(char const *s, char c, char **dest, int count)
 {
 	int i;
 
@@ -64,7 +64,7 @@ char	**ft_write(char const *s, char c, char **dest, int count)
 	return (dest);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	**dest;
 	int		count;

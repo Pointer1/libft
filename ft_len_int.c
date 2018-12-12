@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_len_int.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykopiika <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 12:05:19 by ykopiika          #+#    #+#             */
-/*   Updated: 2018/11/13 12:05:22 by ykopiika         ###   ########.fr       */
+/*   Created: 2018/12/12 17:10:37 by ykopiika          #+#    #+#             */
+/*   Updated: 2018/12/12 17:10:41 by ykopiika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+int	ft_len_int(int n)
 {
-	size_t	i;
-	size_t	len;
+	int	r;
 
-	i = 0;
-	if (ft_strlen(dst) > dstsize)
-		len = dstsize;
+	if (n <= 0)
+		r = 1;
 	else
-		len = ft_strlen(dst);
-	while (dst[i] != '\0')
-		i++;
-	if (dstsize > i)
-		ft_strncat(&dst[i], src, dstsize - i - 1);
-	return (len + ft_strlen(src));
+		r = 0;
+	while (n)
+	{
+		r++;
+		n /= 10;
+	}
+	return (r);
 }

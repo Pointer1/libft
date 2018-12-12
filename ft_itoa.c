@@ -12,49 +12,41 @@
 
 #include "libft.h"
 
-int		ft_n(int n)
+static char	*ft_itoa_wr(int n, int d, char *r)
 {
-	int r;
+	int		n1;
 
-	if (n <= 0)
-		r = 1;
-	else
-		r = 0;
-	while (n)
+	n1 = n;
+	while (n / d == 0 && n != 0)
+		d /= 10;
+	while (d && n != 0)
 	{
+		if (n > 0)
+			*r = (char)((n1 / d) + '0');
+		else
+			*r = (char)(((n1 / d) * (-1)) + '0');
+		n1 -= (n1 / d) * d;
 		r++;
-		n /= 10;
+		d /= 10;
 	}
 	return (r);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
-	char		*r;
-	long int	n1;
+	char	*r;
+	char	*ret;
+	int		d;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
-	r = ft_strnew(ft_n(n));
-	n1 = (long int)n;
-	if (r != NULL)
-	{
-		if (n < 0)
-			n1 *= -1;
-		if (n == 0)
-			*r = '0';
-		while (*r && *r != '0')
-			r++;
-		while (n1 && --r)
-		{
-			*r = (char)((n1 % 10) + '0');
-			n1 /= 10;
-		}
-		if (n < 0)
-		{
-			r--;
-			*r = '-';
-		}
-	}
-	return (r);
+	r = ft_strnew(ft_len_int(n));
+	if (!r)
+		return (NULL);
+	ret = r;
+	d = 1000000000;
+	if (n == 0)
+		*r = '0';
+	if (n < 0)
+		r++[0] = '-';
+	r = ft_itoa_wr(n, d, r);
+	return (ret);
 }

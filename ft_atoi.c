@@ -12,14 +12,6 @@
 
 #include "libft.h"
 
-int	ft_check(char s)
-{
-	if (s == '\t' || s == ' ' || s == '\n' || s == '\v' ||
-				s == '\f' || s == '\r')
-		return (1);
-	return (0);
-}
-
 int	ft_atoi(const char *str)
 {
 	unsigned long int	res;
@@ -29,7 +21,7 @@ int	ft_atoi(const char *str)
 	res = 0;
 	i = 0;
 	sign = 1;
-	while (str[i] != '\0' && ft_check(str[i]))
+	while (str[i] != '\0' && ft_check_sp(str[i]))
 		i++;
 	if ((str[i] == '-') || (str[i] == '+'))
 	{

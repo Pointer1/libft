@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_lstmapone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ykopiika <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 12:05:19 by ykopiika          #+#    #+#             */
-/*   Updated: 2018/11/13 12:05:22 by ykopiika         ###   ########.fr       */
+/*   Created: 2018/12/12 17:24:02 by ykopiika          #+#    #+#             */
+/*   Updated: 2018/12/12 17:24:05 by ykopiika         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+t_list	*ft_lstmapone(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t	i;
-	size_t	len;
+	t_list	*r_f;
+	t_list	*ret;
 
-	i = 0;
-	if (ft_strlen(dst) > dstsize)
-		len = dstsize;
-	else
-		len = ft_strlen(dst);
-	while (dst[i] != '\0')
-		i++;
-	if (dstsize > i)
-		ft_strncat(&dst[i], src, dstsize - i - 1);
-	return (len + ft_strlen(src));
+	r_f = f(lst);
+	ret = ft_lstnew(r_f->content, r_f->content_size);
+	if (!ret)
+	{
+		free(ret);
+		ret = NULL;
+	}
+	return (ret);
 }
