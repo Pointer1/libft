@@ -45,5 +45,5 @@ char			*ft_strstr(const char *haystack, const char *needle)
 	}
 	if (*n == '\0')
 		return (h);
-	return (0);
+	return (NULL);
 }

@@ -17,7 +17,7 @@ char	*ft_strcat(char *s1, const char *s2)
 	char	*d;
 	char	*s;
 
-	d = (char*)s1;
+	d = s1;
 	s = (char*)s2;
 	while (*d != '\0')
 		d++;

@@ -42,7 +42,7 @@ char		*ft_strtrim(char const *s)
 	if ((ft_sp_beg(s) == 0 && ft_sp_end(s) == 0))
 		return (ft_strdup(s));
 	if ((ft_sp_beg(s) == ft_sp_end(s)) && ft_sp_end(s) == len)
-		return (ft_strnew(len));
+		return (ft_strnew(0));
 	res = ft_strnew(len - ft_sp_beg(s) - ft_sp_end(s));
 	if (!res)
 		return (NULL);

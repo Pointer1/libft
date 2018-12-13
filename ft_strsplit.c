@@ -14,51 +14,57 @@
 
 static int		ft_wc(char const *s, char c)
 {
-	int w;
+	int		w;
+	char	*s1;
 
+	s1 = (char*)s;
 	w = 0;
-	while (*s)
+	while (*s1)
 	{
-		if (*s != c)
+		if (*s1 != c)
 			w++;
-		while (*s && *s != c)
-			s++;
-		while (*s && *s == c)
-			s++;
+		while (*s1 && *s1 != c)
+			s1++;
+		while (*s1 && *s1 == c)
+			s1++;
 	}
 	return (w);
 }
 
 static int		ft_strlen_to_d(char const *s, char c)
 {
-	int i;
+	int		i;
+	char	*s1;
 
+	s1 = (char*)s;
 	i = 0;
-	while (*s && *s != c)
+	while (*s1 && *s1 != c)
 	{
 		i++;
-		s++;
+		s1++;
 	}
 	return (i);
 }
 
 static char		**ft_write(char const *s, char c, char **dest, int count)
 {
-	int i;
+	int		i;
+	char	*s1;
 
+	s1 = (char*)s;
 	i = 0;
-	while (*s && i < count)
+	while (*s1 && i < count)
 	{
-		while (*s == c)
-			s++;
-		if (*s && *s != c)
+		while (*s1 == c)
+			s1++;
+		if (*s1 && *s1 != c)
 		{
-			if (!(dest[i] = ft_strsub(s, 0, ft_strlen_to_d(s, c))))
+			if (!(dest[i] = ft_strsub(s1, 0, ft_strlen_to_d(s1, c))))
 				return (NULL);
 			i++;
 		}
-		while (*s && *s != c)
-			s++;
+		while (*s1 && *s1 != c)
+			s1++;
 	}
 	dest[i] = NULL;
 	return (dest);

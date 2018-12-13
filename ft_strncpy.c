@@ -20,7 +20,7 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 
 	i = 0;
 	s = (char*)src;
-	d = (char*)dst;
+	d = dst;
 	while ((i < len) && s[i])
 	{
 		d[i] = s[i];

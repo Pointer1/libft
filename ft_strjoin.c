@@ -28,16 +28,16 @@ static char	*ft_wr(char const *s1, char const *s2, char *res)
 
 char		*ft_strjoin(char const *s1, char const *s2)
 {
-	int		len_s1;
-	int		len_s2;
-	char	*res;
+	size_t		len_s1;
+	size_t		len_s2;
+	char		*res;
 
 	if (!s1 && !s2)
 		return (NULL);
 	if (!s1)
-		return ((char*)s2);
+		return (ft_strdup((char*)s2));
 	if (!s2)
-		return ((char*)s1);
+		return (ft_strdup((char*)s1));
 	len_s1 = ft_strlen(s1);
 	len_s2 = ft_strlen(s2);
 	res = ft_strnew(len_s1 + len_s2);
