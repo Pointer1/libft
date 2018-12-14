@@ -31,5 +31,5 @@ char	*ft_strrchr(const char *s, int c)
 			return (&(str[i]));
 		i--;
 	}
-	return (0);
+	return (NULL);
 }

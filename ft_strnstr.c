@@ -31,5 +31,5 @@ char	*ft_strnstr(const char *hay, const char *nee, size_t len)
 			return (h);
 		h++;
 	}
-	return (0);
+	return (NULL);
 }
