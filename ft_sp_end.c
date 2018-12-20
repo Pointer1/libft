@@ -17,6 +17,8 @@ int		ft_sp_end(char const *s)
 	int		sp;
 	char	*s1;
 
+	if (!s)
+		return (0);
 	sp = 0;
 	s1 = (char*)s;
 	s1 += ft_strlen(s) - 1;

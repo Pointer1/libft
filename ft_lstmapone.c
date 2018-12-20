@@ -17,6 +17,8 @@ t_list	*ft_lstmapone(t_list *lst, t_list *(*f)(t_list *elem))
 	t_list	*r_f;
 	t_list	*ret;
 
+	if (!f || !lst)
+		return (NULL);
 	r_f = f(lst);
 	ret = ft_lstnew(r_f->content, r_f->content_size);
 	if (!ret)

@@ -17,6 +17,8 @@ int		ft_sp_beg(char const *s)
 	int		sp;
 	char	*s1;
 
+	if (!s)
+		return (0);
 	s1 = (char*)s;
 	sp = 0;
 	while (*s1 == ' ' || *s1 == '\t' || *s1 == '\n')
