@@ -19,7 +19,7 @@ static int		chek(char *str1, char *str2)
 
 	i = 0;
 	k = 0;
-	while (str2[i] != '\0')
+	while (str2[i] != '\0' && str1[i] != '\0')
 	{
 		if (str1[k] == str2[i])
 			k++;
@@ -35,6 +35,8 @@ char			*ft_strstr(const char *haystack, const char *needle)
 	char	*h;
 	char	*n;
 
+	if (!*needle)
+		return ((char *)haystack);
 	h = (char*)haystack;
 	n = (char*)needle;
 	while (*h != '\0')

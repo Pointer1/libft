@@ -19,7 +19,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 
 	s11 = (unsigned char*)s1;
 	s22 = (unsigned char*)s2;
-	while (*s11 && (*s11 == *s22))
+	while (*s11 && *s22 && (*s11 == *s22))
 	{
 		s11++;
 		s22++;

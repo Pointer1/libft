@@ -23,13 +23,16 @@ char	*ft_strnstr(const char *hay, const char *nee, size_t len)
 	n = (char*)nee;
 	ln = ft_strlen(n);
 	i = 0;
-	if (h == n || *n == '\0')
+	if (h == n || !*n)
 		return (h);
-	while (i++ <= (len - ln) && *h != '\0' && len != 0)
+	if (!*h)
+		return (NULL);
+	while (*h && i < len && (len - i) >= ln)
 	{
-		if ((ft_strncmp(h, n, ln) == 0) && ln < len)
+		if (ft_strncmp(h, n, ln) == 0)
 			return (h);
 		h++;
+		i++;
 	}
 	return (NULL);
 }

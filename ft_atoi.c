@@ -15,28 +15,28 @@
 int	ft_atoi(const char *str)
 {
 	unsigned long int	res;
-	int					i;
+	unsigned long int	ln;
 	int					sign;
 
 	res = 0;
-	i = 0;
 	sign = 1;
-	while (str[i] != '\0' && ft_check_sp(str[i]))
-		i++;
-	if ((str[i] == '-') || (str[i] == '+'))
+	ln = 922337203685477580;
+	while (*str != '\0' && ft_check_sp(*str))
+		str++;
+	if ((*str == '-') || (*str == '+'))
 	{
-		if (str[i] == '-')
+		if (*str == '-')
 			sign = -1;
-		i++;
+		str++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (*str >= '0' && *str <= '9' && *str != '\0')
 	{
-		res = (res * 10) + (str[i] - '0');
-		i++;
+		if ((res > ln || (res == ln && (*str - '0') > 7)) && sign == 1)
+			return (-1);
+		else if ((res > ln || (res == ln && (*str - '0') > 8)) && sign == -1)
+			return (0);
+		res = (res * 10) + (*str - '0');
+		str++;
 	}
-	if (res > 9223372036854775807 && sign == -1)
-		return (0);
-	else if (res > 9223372036854775807 && sign == 1)
-		return (-1);
 	return ((int)(res * sign));
 }

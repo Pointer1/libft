@@ -21,6 +21,8 @@ char	*ft_strcpy(char *dst, const char *src)
 	i = 0;
 	s = (char*)src;
 	d = dst;
+	if (!src && !dst)
+		return (NULL);
 	while (s[i])
 	{
 		d[i] = s[i];
