@@ -12,40 +12,25 @@
 
 #include "libft.h"
 
-static int		chek(char *str1, char *str2)
-{
-	int i;
-	int k;
-
-	i = 0;
-	k = 0;
-	while (str2[i] != '\0' && str1[i] != '\0')
-	{
-		if (str1[k] == str2[i])
-			k++;
-		i++;
-	}
-	if (k == i)
-		return (1);
-	return (0);
-}
-
 char			*ft_strstr(const char *haystack, const char *needle)
 {
 	char	*h;
 	char	*n;
+	size_t	s;
 
 	if (!*needle)
 		return ((char *)haystack);
 	h = (char*)haystack;
 	n = (char*)needle;
+	s = ft_strlen(needle);
 	while (*h != '\0')
 	{
-		if (chek(h, n) == 1)
-			return (h);
+		if (*h == *n)
+		{
+			if (ft_strncmp(h, n, s) == 0)
+				return (h);
+		}
 		h++;
 	}
-	if (*n == '\0')
-		return (h);
 	return (NULL);
 }
